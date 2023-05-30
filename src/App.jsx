@@ -5,6 +5,8 @@ import Vans from "./pages/Vans"
 import VanDetail from "./pages/VanDetails"
 import './App.css'
 import { Link } from 'react-router-dom'
+
+import Layout from "./components/Layout"
 import "../server.js";
 
 function App() {
@@ -13,15 +15,18 @@ function App() {
   return (
     <>
        <BrowserRouter>
-       <Link to="/">#VANLIFE</Link>
-       <Link to="/about">About</Link>
-       <Link to="/vans">Vans</Link>
+       
+       
 
       <Routes>
-          <Route path="/about" element={<About />} />
-       <Route path="/" element={<Home />} />
-       <Route path="/vans" element={<Vans />} />
-       <Route path="/vans/:id" element={<VanDetail />} />
+        <Route element={<Layout />} >
+            <Route path="/about" element={<About />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/vans" element={<Vans />} />
+           <Route path="/vans/:id" element={<VanDetail />} />
+        </Route>
+       
+        
        </Routes>
     </BrowserRouter>
        
