@@ -7,6 +7,9 @@ import Dashboard from "./pages/Host/Dashboard"
 import Income from "./pages/Host/Income"
 import Reviews from "./pages/Host/Reviews"
 import HostVans from "./pages/Host/HostVans"
+import HostVanDetail from "./pages/Host/HostVanDetail"
+import HostVanInfo from "./pages/Host/HostVanInfo"
+import HostVanPhoto from "./pages/Host/HostVanPhoto"
 
 import './App.css'
 import { Link } from 'react-router-dom'
@@ -14,6 +17,8 @@ import { Link } from 'react-router-dom'
 import Layout from "./components/Layout"
 import "../server.js";
 import HostLayout from "./components/HostLayout"
+
+import HostVanPricing from "./pages/Host/HostVanPricing"
 
 function App() {
   
@@ -27,7 +32,7 @@ function App() {
       <Routes>
         <Route element={<Layout />} >
            
-            <Route index element={<Home />} />
+            <Route index element={<Home />} /> 
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />} />
            <Route path="vans/:id" element={<VanDetail />} />
@@ -37,6 +42,12 @@ function App() {
            <Route path="income" element={<Income />} />
            <Route path="reviews" element={<Reviews />} /> 
            <Route path="vans" element={<HostVans />} />
+           <Route path="vans/:id" element={<HostVanDetail />}>
+                <Route index element={<HostVanInfo />} />
+                <Route path="pricing" element={<HostVanPricing />}/>
+                <Route path="photos" element={<HostVanPhoto />} />
+                <Route />
+            </Route> 
            </Route>
 
           
